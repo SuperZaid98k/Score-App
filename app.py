@@ -5,7 +5,7 @@ import io
 import base64
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Needed for session management
+app.secret_key = 'your_secret_key'
 
 # Load or initialize the scoring data
 data_file = "scoring_data.xlsx"
@@ -22,7 +22,7 @@ except FileNotFoundError:
 def generate_bar_plot():
     global scores_df
     if scores_df.empty:
-        return None  # Return None if no data to plot
+        return None
 
     plt.figure(figsize=(10, 6))
     plt.bar(scores_df["Project Name/ID"], scores_df["Total Score"], color='skyblue')
@@ -32,57 +32,33 @@ def generate_bar_plot():
     plt.xticks(rotation=45, ha='right', fontsize=10)
     plt.tight_layout()
 
-    # Save the plot to a BytesIO object
     buf = io.BytesIO()
     plt.savefig(buf, format='png')
     buf.seek(0)
     plt.close()
     return base64.b64encode(buf.getvalue()).decode('utf-8')
 
-# Landing page
 @app.route('/')
 def home():
     plot_url = generate_bar_plot()
-    if plot_url:
-        plot_html = f'<img src="data:image/png;base64,{plot_url}" alt="Bar Plot">'
-    else:
-        plot_html = "<p>No data available to plot.</p>"
-    return f"""
-    <h1>Welcome to the Scoring App</h1>
-    <a href="/login">Login to Continue</a>
-    <h2>Projects and Their Total Scores</h2>
-    {plot_html}
-    """
+    return render_template('home.html', plot_url=plot_url)
 
-# Login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         password = request.form['password']
-        if password == 'admin123':  # Set your desired password here
+        if password == 'admin123':
             session['logged_in'] = True
             return redirect(url_for('index'))
         else:
-            return "<h1>Invalid Password</h1><a href='/login'>Try Again</a>"
-    return """
-    <form method="POST">
-        <label for="password">Enter Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
-    </form>
-    """
+            return render_template('login.html', error="Invalid Password")
+    return render_template('login.html', error=None)
 
-# Scoring form (index page)
 @app.route('/index')
 def index():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    return f"""
-    <h1>Project Scoring Form</h1>
-    {render_template('index.html')}
-    <br>
-    <a href="/"><button>Go to Home</button></a>
-    """
+    return render_template('index.html')  # This uses your original index.html file
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -114,7 +90,6 @@ def submit():
 
     return redirect(url_for('index'))
 
-# Results page with delete functionality
 @app.route('/results', methods=['GET', 'POST'])
 def results():
     global scores_df
@@ -130,21 +105,7 @@ def results():
             message = f"Project '{project_name}' not found."
 
     scores_html = scores_df.to_html(classes='table table-striped', index=False)
-    return f"""
-    <h1>Scoring Results</h1>
-    {scores_html}
-    <br>
-    <form method="POST">
-        <label for="delete_project_name">Delete Project by Name:</label>
-        <input type="text" id="delete_project_name" name="delete_project_name" required>
-        <button type="submit">Delete</button>
-    </form>
-    <p>{message}</p>
-    <br>
-    <a href="/"><button>Go to Home</button></a>
-    <br>
-    <a href="/index">Back to Form</a>
-    """
+    return render_template('results.html', scores_html=scores_html, message=message)
 
 if __name__ == '__main__':
     app.run(debug=True)

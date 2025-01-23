@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1>Scoring Results</h1>
+    {{ scores_html|safe }}
+    <form method="POST">
+        <label for="delete_project_name">Delete Project by Name:</label>
+        <input type="text" id="delete_project_name" name="delete_project_name" required>
+        <button type="submit">Delete</button>
+    </form>
+    <p>{{ message }}</p>
+    <a href="/">Go to Home</a>
+    <a href="/index">Back to Form</a>
+</body>
+
+</html>
