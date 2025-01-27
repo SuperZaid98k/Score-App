@@ -10,6 +10,16 @@
 </head>
 
 <body>
+    <!-- Logo Container -->
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/mscbqsf3.png') }}" alt="Left Logo" class="logo left-logo">
+        <img src="{{ url_for('static', filename='images/psf.png') }}" alt="Right Logo" class="logo right-logo">
+    </div>
+
+    <!-- Page Content -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
     <h1>Project Scoring Form</h1>
     <form action="/submit" method="post">
         <div class="form-group">
@@ -20,43 +30,43 @@
         <div class="form-group">
             <label for="relevance">Relevance to Theme (0-15):</label>
             <input type="number" id="relevance" name="relevance" min="0" max="15" required>
-            <span class="tooltip">Enter a score between 0 and 15</span>
+
         </div>
 
         <div class="form-group">
             <label for="creativity">Creativity and Innovation (0-20):</label>
             <input type="number" id="creativity" name="creativity" min="0" max="20" required>
-            <span class="tooltip">Enter a score between 0 and 20</span>
+
         </div>
 
         <div class="form-group">
             <label for="technical">Technical Execution (0-20):</label>
             <input type="number" id="technical" name="technical" min="0" max="20" required>
-            <span class="tooltip">Enter a score between 0 and 20</span>
+
         </div>
 
         <div class="form-group">
             <label for="functionality">Functionality (0-15):</label>
             <input type="number" id="functionality" name="functionality" min="0" max="15" required>
-            <span class="tooltip">Enter a score between 0 and 15</span>
+
         </div>
 
         <div class="form-group">
             <label for="presentation">Presentation (0-15):</label>
             <input type="number" id="presentation" name="presentation" min="0" max="15" required>
-            <span class="tooltip">Enter a score between 0 and 15</span>
+
         </div>
 
         <div class="form-group">
             <label for="teamwork">Teamwork (0-10):</label>
             <input type="number" id="teamwork" name="teamwork" min="0" max="10" required>
-            <span class="tooltip">Enter a score between 0 and 10</span>
+
         </div>
 
         <div class="form-group">
             <label for="environmental">Environmental Considerations (0-5):</label>
             <input type="number" id="environmental" name="environmental" min="0" max="5" required>
-            <span class="tooltip">Enter a score between 0 and 5</span>
+
         </div>
 
         <button type="submit">Submit Score</button>

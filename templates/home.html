@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
+{% block title %}Home{% endblock %}
 
-<body>
-    <h1>Welcome to the Scoring App</h1>
-    <a href="/login">Login to Continue</a>
-    <h2>Projects and Their Total Scores</h2>
-    {% if plot_url %}
-    <img src="data:image/png;base64,{{ plot_url }}" alt="Bar Plot">
-    {% else %}
-    <p>No data available to plot.</p>
-    {% endif %}
-</body>
+{% block content %}
+<h1>Steam Event Scoring</h1>
+<div class="center-buttons">
+    <a href="/login"><button>Login for Judges</button></a>
+</div>
 
-</html>
+<h2>Projects and Their Total Scores</h2>
+{% if plot_url %}
+<img src="data:image/png;base64,{{ plot_url }}" alt="Bar Plot">
+{% else %}
+<p>No data available to plot.</p>
+{% endif %}
+{% endblock %}

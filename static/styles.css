@@ -1,9 +1,212 @@
-/* Global Styles */
+/* General styles for all pages */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.table {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f4f4f4;
+}
+
+.table-striped tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Center links and buttons */
+a.button-link {
+    display: inline-block;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+
+    h1,
+    h2 {
+        font-size: 1.5em;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1em;
+        padding: 15px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    form label {
+        font-size: 1em;
+    }
+
+    .table {
+        font-size: 0.9em;
+    }
+}
+
+/* Style for buttons wrapped in <a> tags */
+/* Center buttons inside <a> tags */
+a button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+    text-decoration: none;
+    margin: 10px;
+}
+
+a button:hover {
+    background-color: #0056b3;
+}
+
+/* Center the <a> tags themselves */
+.center-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Adds spacing between buttons */
+    flex-wrap: wrap;
+    /* Ensures buttons wrap on smaller screens */
+    margin: 20px 0;
+}
+
+/* Logo Styles */
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+}
+
+.left-logo {
+    align-self: flex-start;
+}
+
+.right-logo {
+    align-self: flex-end;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Responsive Design Tweaks */
+@media (max-width: 768px) {
+    .logo-container {
+        padding: 5px 10px;
+    }
+
+    .logo {
+        max-width: 60px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Vibrant gradient background */
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    /* Vibrant gradient background */
     color: #333;
 }
 
@@ -19,7 +222,8 @@ form {
 }
 
 form:hover {
-    transform: translateY(-5px); /* Subtle hover effect for form */
+    transform: translateY(-5px);
+    /* Subtle hover effect for form */
 }
 
 h1 {
@@ -30,7 +234,8 @@ h1 {
 }
 
 /* Input Styles */
-input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0 20px;
@@ -40,8 +245,10 @@ input[type="text"], input[type="number"] {
     transition: border-color 0.3s;
 }
 
-input[type="text"]:focus, input[type="number"]:focus {
-    border-color: #ff6f61; /* Color change on focus */
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #ff6f61;
+    /* Color change on focus */
     outline: none;
     box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
 }
@@ -50,7 +257,8 @@ input[type="text"]:focus, input[type="number"]:focus {
 button {
     width: 100%;
     padding: 12px 20px;
-    background: linear-gradient(90deg, #ff6f61, #ff9671); /* Vibrant gradient button */
+    background: linear-gradient(90deg, #ff6f61, #ff9671);
+    /* Vibrant gradient button */
     border: none;
     border-radius: 8px;
     color: white;
@@ -61,7 +269,8 @@ button {
 
 button:hover {
     background: linear-gradient(90deg, #ff9671, #ff6f61);
-    transform: scale(1.05); /* Slight grow effect */
+    transform: scale(1.05);
+    /* Slight grow effect */
 }
 
 /* Tooltip Styles */

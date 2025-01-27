@@ -1,24 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
+{% block title %}Results{% endblock %}
 
-<body>
-    <h1>Scoring Results</h1>
-    {{ scores_html|safe }}
-    <form method="POST">
-        <label for="delete_project_name">Delete Project by Name:</label>
-        <input type="text" id="delete_project_name" name="delete_project_name" required>
-        <button type="submit">Delete</button>
-    </form>
-    <p>{{ message }}</p>
-    <a href="/">Go to Home</a>
-    <a href="/index">Back to Form</a>
-</body>
+{% block content %}
+<h1>Scoring Results</h1>
+{{ scores_html|safe }}
 
-</html>
+<h2>Delete a Project</h2>
+<form method="POST">
+    <label for="delete_project_name">Project Name:</label>
+    <input type="text" id="delete_project_name" name="delete_project_name" required>
+
+    <label for="delete_total_score">Total Score:</label>
+    <input type="number" id="delete_total_score" name="delete_total_score" required>
+
+    <button type="submit">Delete</button>
+</form>
+<p>{{ message }}</p>
+
+<div class="center-buttons">
+    <a href="/download"><button>Download Excel File</button></a>
+    <a href="/"><button>Go to Home</button></a>
+    <a href="/index"><button>Back to Form</button></a>
+</div>
+{% endblock %}

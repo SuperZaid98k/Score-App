@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Page Title{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <!-- Logo Container -->
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/mscbqsf3.png') }}" alt="Left Logo" class="logo left-logo">
+        <img src="{{ url_for('static', filename='images/psf.png') }}" alt="Right Logo" class="logo right-logo">
+    </div>
+
+    <!-- Page Content -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

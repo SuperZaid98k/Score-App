@@ -1,0 +1,154 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    /* Vibrant gradient background */
+    color: #333;
+}
+
+/* Form Styles */
+form {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+form:hover {
+    transform: translateY(-5px);
+    /* Subtle hover effect for form */
+}
+
+h1 {
+    text-align: center;
+    color: #6a0572;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border: 2px solid #6a0572;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #ff6f61;
+    /* Color change on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #ff6f61, #ff9671);
+    /* Vibrant gradient button */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #ff9671, #ff6f61);
+    transform: scale(1.05);
+    /* Slight grow effect */
+}
+
+/* Tooltip Styles */
+.tooltip {
+    font-size: 0.9em;
+    color: #6a0572;
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Link Styles */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #ff6f61;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #6a0572;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
+
+/* Logo Styles */
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+}
+
+.left-logo {
+    align-self: flex-start;
+}
+
+.right-logo {
+    align-self: flex-end;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Responsive Design Tweaks */
+@media (max-width: 768px) {
+    .logo-container {
+        padding: 5px 10px;
+    }
+
+    .logo {
+        max-width: 60px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+}
